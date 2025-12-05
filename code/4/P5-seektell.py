@@ -1,6 +1,6 @@
 filename = 'hello.txt'
 
-# 为了演示，先创建一个初始文件
+# 先创建一个初始文件
 with open(filename, 'w') as f:
     f.write('Hello World!')
 
