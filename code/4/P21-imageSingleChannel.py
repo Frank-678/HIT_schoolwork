@@ -27,6 +27,7 @@ def keep_single_channel(img_array, channel):
     # 一个图片数组的形状是这样的：[ 高度(行), 宽度(列), 颜色通道(层) ]
     # ... 代表“前面的行和列我都要，我只关心最后一个维度”
     single_channel_image[..., index] = img_array[..., index]
+    # 也是对的：single_channel_image[: , :, index] = img_array[:, :, index]
     
     return single_channel_image
 
