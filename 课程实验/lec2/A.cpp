@@ -5,71 +5,125 @@
 using namespace std;
 
 int main() {
+    // 读入城市数量
     int N;
     cin >> N;
 
+    // 每个城市用 pair<int,int> 存：
+    // first  -> 城市坐标 x
+    // second -> 人口 p
     vector<pair<int, int>> city(N);
-    long long total = 0;
 
+    // totalPeople 记录总人口
+    long long totalPeople = 0;
+
+    // 读入所有城市
     for (int i = 0; i < N; i++) {
-        cin >> city[i].first >> city[i].second; // x, p
-        total += city[i].second;
+        int x, p;
+        cin >> x >> p;
+        city[i] = {x, p};
+        totalPeople += p;
     }
 
+    // 按城市坐标从小到大排序
     sort(city.begin(), city.end());
 
-    long long prefix = 0;
-    double ans = 0;
+    // prefixPeople 表示“从左到右已经累计的人口”
+    long long prefixPeople = 0;
 
+    // answer 表示最终选出的电视台位置
+    double answer = 0.0;
+
+    // 从左到右扫描，寻找加权中位数
     for (int i = 0; i < N; i++) {
-        prefix += city[i].second;
-        if (prefix * 2 >= total) {
-            ans = city[i].first;
+        prefixPeople += city[i].second;
+
+        // 当左边累计人口第一次达到总人口的一半
+        // 当前坐标就是一个最优解
+        if (prefixPeople * 2 >= totalPeople) {
+            answer = city[i].first;
             break;
         }
     }
 
-    cout << fixed << setprecision(5) << ans << endl;
+    // 按题目要求保留 5 位小数输出
+    cout << fixed << setprecision(5) << answer << endl;
+
     return 0;
 }
 
 // #include <iostream>
 // #include <vector>
+// #include <algorithm>
+// #include <iomanip>
 // using namespace std;
 
 // int main() {
-//     //电视台x的范围，在最左与最右城市之间
 //     int N;
 //     cin >> N;
-//     map<int, int> m;  // 坐标：人口
-//     int a, b;
-//     for (int i =0;i<N;i++){
-//         cin >> a >> b;
-//         m[a] = b;
-//     }
-//     int minl = INT_MAX, maxl = INT_MIN;
-//     for (const auto& [l, p] : m) {
-//         if (l > maxl) maxl = l;
-//         if (l < minl) minl = l;
+
+//     vector<pair<int, int>> city(N);
+//     long long total = 0;
+
+//     for (int i = 0; i < N; i++) {
+//         cin >> city[i].first >> city[i].second; // x, p
+//         total += city[i].second;
 //     }
 
-//     // x 在minl和maxl之间
-//     int left = minl, right = maxl;
-//     float vmax = 0;
-//     float vx;
-//     for () {
+//     sort(city.begin(), city.end());
 
-//         int vv = 0;
-//         float x = left + (right - left) / 2;
-    
-//         int vv = 0;
-//         for (const auto& [l, p] : m) {
-//             vv += abs(l-x) * p;
-//         }
+//     long long prefix = 0;
+//     double ans = 0;
 
-//         if (vv > vmin) {
-//             vx = x;
-//             vmax = vv;
+//     for (int i = 0; i < N; i++) {
+//         prefix += city[i].second;
+//         if (prefix * 2 >= total) {
+//             ans = city[i].first;
+//             break;
 //         }
 //     }
+
+//     cout << fixed << setprecision(5) << ans << endl;
+//     return 0;
 // }
+
+// // #include <iostream>
+// // #include <vector>
+// // using namespace std;
+
+// // int main() {
+// //     //电视台x的范围，在最左与最右城市之间
+// //     int N;
+// //     cin >> N;
+// //     map<int, int> m;  // 坐标：人口
+// //     int a, b;
+// //     for (int i =0;i<N;i++){
+// //         cin >> a >> b;
+// //         m[a] = b;
+// //     }
+// //     int minl = INT_MAX, maxl = INT_MIN;
+// //     for (const auto& [l, p] : m) {
+// //         if (l > maxl) maxl = l;
+// //         if (l < minl) minl = l;
+// //     }
+
+// //     // x 在minl和maxl之间
+// //     int left = minl, right = maxl;
+// //     float vmax = 0;
+// //     float vx;
+// //     for () {
+
+// //         int vv = 0;
+// //         float x = left + (right - left) / 2;
+    
+// //         int vv = 0;
+// //         for (const auto& [l, p] : m) {
+// //             vv += abs(l-x) * p;
+// //         }
+
+// //         if (vv > vmin) {
+// //             vx = x;
+// //             vmax = vv;
+// //         }
+// //     }
+// // }
