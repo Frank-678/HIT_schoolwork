@@ -23,6 +23,7 @@ int main() {
     如果不行，说明 x 太大了
     */
 
-    
+    // x 的范围是 [1, L]
+    int left = 1, right = L;
     
 }
