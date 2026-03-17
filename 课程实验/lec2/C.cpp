@@ -25,7 +25,7 @@ int main() {
         // 我们可以双指针遍历
         int m = 0;
         int last = 1;
-        for (int kept = 0; last < N; last++) {
+        for (int kept = 0; last <= N; last++) {
             if (kept == 0 || D[0] < x) {
                 kept++;
                 last++;
