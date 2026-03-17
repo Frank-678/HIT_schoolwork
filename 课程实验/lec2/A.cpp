@@ -20,7 +20,7 @@ int main() {
     }
 
     // TODO
-    
+    sort(city.begin(), city.end());
 }
 
 
