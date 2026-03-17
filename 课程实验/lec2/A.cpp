@@ -13,12 +13,14 @@ int main() {
     // first  -> 城市坐标 x
     // second -> 人口 p
     vector<pair<int, int>> city(N);
+    int X, P;
     for (int i = 0; i < N; i++) {
-        
+        cin >> X >> P;
+        city.push_back(make_pair(X, P));
     }
 
     // TODO
-
+    
 }
 
 
