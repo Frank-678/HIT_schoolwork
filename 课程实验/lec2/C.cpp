@@ -14,7 +14,35 @@ int main() {
     }
 
     // TODO
+    int ans = 0;
+    int left = 0, right = L;
+    while (left <= right) {
+        int x = (left + right) / 2;
 
+
+        // 我们要删：所有空隙小于x的，统计删m个
+        // 我们从左往右遍历地删（因为删右面不会影响左面）
+        // 我们可以双指针遍历
+        int m = 0;
+        for (int kept = 0, i = 0; i < N; i++) {
+            if (D[i] - D[kept] < x) {
+                i++;
+                m++;
+            } else {
+                kept = i;
+                i++;
+            }
+        }
+
+
+        if (m > M) {
+            right -= 1;
+        } else if (m < M) {
+            left += 1;
+        } else {
+            ans = x;
+        }
+    }
 
     return 0;
 }
