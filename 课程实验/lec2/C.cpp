@@ -37,11 +37,10 @@ int main() {
 
         if (m > M) {
             right -= 1;
-        } else if (m < M) {
-            left += 1;
-        } else {
+        } else if (m <= M) {  // 贪心
             ans = x;
-        }
+            left += 1;
+        } 
     }
 
     return 0;
