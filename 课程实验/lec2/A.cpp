@@ -13,6 +13,9 @@ int main() {
     // first  -> 城市坐标 x
     // second -> 人口 p
     vector<pair<int, int>> city(N);
+    for (int i = 0; i < N; i++) {
+        
+    }
 
     // TODO
 
