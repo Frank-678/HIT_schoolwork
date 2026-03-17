@@ -22,23 +22,16 @@ int main() {
 
         // 我们要删：所有空隙小于x的，统计删m个
         // 我们从左往右遍历地删（因为删右面不会影响左面）
-        // 我们可以双指针遍历
         int m = 0;
-        int last = 1;
-        for (int kept = 0; last <= N; last++) {
-            if (kept == 0 || D[0] < x) {
-                kept++;
-                last++;
-            } 
-            if (D[last] - D[kept] < x) {
-                last++;
+        int last = 0;
+        for (int i = 0; i < N; i++) {
+            if (D[i] - last < x) {
                 m++;
             } else {
-                kept = last;
-                last++;
+                last = D[i];
             }
         }
-        if (L - D[last] < x) {
+        if (L - last < x) {
             m++;
         }
 
@@ -50,6 +43,6 @@ int main() {
             left = x + 1;
         } 
     }
-
+    cout << ans << endl;
     return 0;
 }
