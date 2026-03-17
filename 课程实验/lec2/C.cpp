@@ -44,10 +44,10 @@ int main() {
 
 
         if (m > M) {
-            right -= 1;
+            right = x - 1;
         } else if (m <= M) {  // 贪心
             ans = x;
-            left += 1;
+            left = x + 1;
         } 
     }
 
