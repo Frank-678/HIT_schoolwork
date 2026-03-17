@@ -24,14 +24,22 @@ int main() {
         // 我们从左往右遍历地删（因为删右面不会影响左面）
         // 我们可以双指针遍历
         int m = 0;
-        for (int kept = 0, i = 0; i < N; i++) {
-            if (D[i] - D[kept] < x) {
-                i++;
+        int last = 1;
+        for (int kept = 0; last < N; last++) {
+            if (kept == 0 || D[0] < x) {
+                kept++;
+                last++;
+            } 
+            if (D[last] - D[kept] < x) {
+                last++;
                 m++;
             } else {
-                kept = i;
-                i++;
+                kept = last;
+                last++;
             }
+        }
+        if (L - D[last] < x) {
+            m++;
         }
 
 
