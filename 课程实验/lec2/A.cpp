@@ -14,43 +14,16 @@ int main() {
     // second -> 人口 p
     vector<pair<int, int>> city(N);
 
-    // totalPeople 记录总人口
-    long long totalPeople = 0;
+    // TODO
 
-    // 读入所有城市
-    for (int i = 0; i < N; i++) {
-        int x, p;
-        cin >> x >> p;
-        city[i] = {x, p};
-        totalPeople += p;
-    }
-
-    // 按城市坐标从小到大排序
-    sort(city.begin(), city.end());
-
-    // prefixPeople 表示“从左到右已经累计的人口”
-    long long prefixPeople = 0;
-
-    // answer 表示最终选出的电视台位置
-    double answer = 0.0;
-
-    // 从左到右扫描，寻找加权中位数
-    for (int i = 0; i < N; i++) {
-        prefixPeople += city[i].second;
-
-        // 当左边累计人口第一次达到总人口的一半
-        // 当前坐标就是一个最优解
-        if (prefixPeople * 2 >= totalPeople) {
-            answer = city[i].first;
-            break;
-        }
-    }
-
-    // 按题目要求保留 5 位小数输出
-    cout << fixed << setprecision(5) << answer << endl;
-
-    return 0;
 }
+
+
+
+
+
+
+
 
 // #include <iostream>
 // #include <vector>
