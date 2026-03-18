@@ -19,9 +19,10 @@ int main() {
         city.push_back(make_pair(X, P));
     }
 
-    // TODO
+    // TODO  加权中位数
     sort(city.begin(), city.end());
-    
+    // 所有坐标都是整数，加权中位数一定是整数
+    int left = city[0].first, right = city[city.size() - 1].first;
 }
 
 
