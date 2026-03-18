@@ -22,10 +22,15 @@ int main() {
 
     int last_person = round(m * 1.5);
     int last_score = candidates[last_person].second;
-    cout << last_score << endl;
-    for (int i = 0; i < n;i++) {
+    for (int i = 0; i < n; i++) {
+        if (candidates[i].second < candidates[last_person].second) {
+            last_person = i - 1;
+            break;
+        }
+    }
+    cout << last_score << " " << last_person << endl;
+    for (int i = 0; i < last_person;i++) {
         cout << candidates[i].first << " " << candidates[i].second << endl;
-        if (candidates[i].second < last_score) break;
     }
     return 0;
 }
