@@ -23,6 +23,24 @@ int main() {
     sort(city.begin(), city.end());
     // 所有坐标都是整数，加权中位数一定是整数
     int left = city[0].first, right = city[city.size() - 1].first;
+    int ans;
+    int weight_total = 0;
+    for (int x = left; x <= right; x++) {
+        int weight_left = 0, weight_right = 0;
+        for (const auto& [location, people] : city) {
+            int weight = (x - location) * people;
+            if (location < x) {
+                weight_left += weight;
+            } else if (location > x) {
+                weight_right += weight;
+            }
+        }
+        if (weight_left = weight_right) {
+            ans = x;
+        }
+    }
+
+    cout << setprecision(5) << (float)ans << endl;
 }
 
 
