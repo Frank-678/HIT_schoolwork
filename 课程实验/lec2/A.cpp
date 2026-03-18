@@ -28,7 +28,7 @@ int main() {
     for (int x = left; x <= right; x++) {
         int population_left = 0, population_right = 0;
         for (const auto& [location, people] : city) {
-            if (location < x) {
+            if (location <= x) {
                 population_left += people;
             } else if (location > x) {
                 population_right += people;
