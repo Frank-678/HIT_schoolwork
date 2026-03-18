@@ -20,10 +20,10 @@ int main() {
     }
     sort(candidates.begin(), candidates.end(), cmp);
 
-    int last_person = round(m * 1.5 + 0.5);
+    int last_person = round(m * 1.5);
     int last_score = candidates[last_person].second;
     cout << last_score << endl;
-    for (int i = 0; ;i++) {
+    for (int i = 0; i < n;i++) {
         cout << candidates[i].first << " " << candidates[i].second << endl;
         if (candidates[i].second < last_score) break;
     }
