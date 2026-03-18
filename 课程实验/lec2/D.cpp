@@ -6,7 +6,7 @@
 using namespace std;
 
 bool cmp (pair<int, int>& a, pair<int, int>& b) {
-    return a.second > b.second || (a.second == b.second && a.first > b.first);
+    return a.second > b.second || (a.second == b.second && a.first < b.first);
 }
 
 int main() {
@@ -20,8 +20,8 @@ int main() {
     }
     sort(candidates.begin(), candidates.end(), cmp);
 
-    int last_person = round(m * 1.5 - 0.5);
-    int last_score = candidates[last_person].second;
+    int last_person = m * 3 / 2;
+    int last_score = candidates[last_person - 1].second;
     for (int i = 0; i < n; i++) {
         if (candidates[i].second < last_score) {
             last_person = i - 1;
