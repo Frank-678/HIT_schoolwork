@@ -2,6 +2,7 @@
 #include <cmath>
 #include <vector>
 #include <algorithm>
+#include <numeric>   // gcd
 using namespace std;
 
 struct Fraction {
@@ -12,22 +13,22 @@ bool cmp(const Fraction& x, const Fraction& y) {
     return x.a * y.b < y.a * x.b;
 }
 
-bool isRight(int j, int i) {
-    for (int k = 2; k <= j; k++) {
-        if (j % k == 0 && i % k == 0) return false;
-    }
-    return true;
-}
+// 相比之下gcd 用的是欧几里得算法，核心是：gcd(a,b)=gcd(b,amodb)
+// bool isRight(int j, int i) {
+//     for (int k = 2; k <= j; k++) {
+//         if (j % k == 0 && i % k == 0) return false;
+//     }
+//     return true;
+// }
 
 int main() {
     int n;
     cin >> n;
-    cout << "0/1"  << endl;
     vector<Fraction> v;
-    for (int i =1; i <= n; i++) {
-        for (int j = 1; j <= i; j++){
-            if (isRight(j, i)) {
-                v.push_back({j, i});
+    for (int b = 1; b <= n; b++) {
+        for (int a = 0; a <= b; a++) {
+            if (gcd(a, b) == 1) {
+                v.push_back({a, b});
             }
         }
     }

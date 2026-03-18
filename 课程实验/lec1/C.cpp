@@ -13,32 +13,7 @@ int main() {
         v.push_back(s);
     }
 
-    for (int j = 0; j < v.size(); j++) {   // 假设删掉第 j 行
-        bool canDelete = true;
-
-        for (int i = 0; i < n; i++) {      // 枚举每一列
-            if (v[j][i] == '1') {
-                bool hasLight = false;
-                for (int k = 0; k < v.size(); k++) {
-                    if (k != j && v[k][i] == '1') {
-                        hasLight = true;
-                        break;
-                    }
-                }
-                if (!hasLight) {
-                    canDelete = false;
-                    break;
-                }
-            }
-        }
-
-        if (canDelete) {
-            cout << "YES";
-            return 0;
-        }
-    }
-
-    cout << "NO";
+    // TODO
     return 0;
 }
 
