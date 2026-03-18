@@ -24,7 +24,6 @@ int main() {
     int last_score = candidates[last_person].second;
     for (int i = 0; i < n; i++) {
         if (candidates[i].second < last_score) {
-            cout << candidates[i].first << " " << candidates[i].second << endl;
             last_person = i - 1;
             break;
         }
