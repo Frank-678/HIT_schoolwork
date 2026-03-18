@@ -21,10 +21,10 @@ int main() {
     sort(candidates.begin(), candidates.end(), cmp);
 
     int last_person = m * 3 / 2;
-    int last_score = candidates[last_person - 1].second;
+    int last_score = candidates[last_person - 1].second; // 注意是last_person - 1，因为下标从0开始
     for (int i = 0; i < n; i++) {
         if (candidates[i].second < last_score) {
-            last_person = i - 1;
+            last_person = i; 
             break;
         }
     }
