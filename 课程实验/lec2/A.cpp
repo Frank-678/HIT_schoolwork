@@ -12,7 +12,7 @@ int main() {
     // 每个城市用 pair<int,int> 存：
     // first  -> 城市坐标 x
     // second -> 人口 p
-    vector<pair<int, int>> city(N);
+    vector<pair<int, int>> city;
     int X, P;
     for (int i = 0; i < N; i++) {
         cin >> X >> P;
@@ -24,23 +24,23 @@ int main() {
     // 所有坐标都是整数，加权中位数一定是整数
     int left = city[0].first, right = city[city.size() - 1].first;
     double ans;
-    int weight_total = 0;
+    // 比较的是权重
     for (int x = left; x <= right; x++) {
-        int weight_left = 0, weight_right = 0;
+        int population_left = 0, population_right = 0;
         for (const auto& [location, people] : city) {
-            int weight = (x - location) * people;
             if (location < x) {
-                weight_left += weight;
+                population_left += people;
             } else if (location > x) {
-                weight_right += weight;
+                population_right += people;
             }
         }
-        if (weight_left >= weight_right) {
+        if (population_left >= population_right) {
             ans = (double) x;
+            break;
         }
     }
 
-    cout << setprecision(5) << ans << endl;
+    cout << fixed << setprecision(5) << ans << endl;
 }
 
 
