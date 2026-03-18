@@ -29,6 +29,7 @@ int main() {
         prefix_population += population;
         if (prefix_population * 2 >= total_population) {
             ans = (float)location;
+            break;
         }
     }
     cout << fixed << setprecision(5) << ans << endl;
