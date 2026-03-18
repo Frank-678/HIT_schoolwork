@@ -1,6 +1,66 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iomanip>
+using namespace std;
 
+int main() {
+    // 读入城市数量
+    int N;
+    cin >> N;
 
-/*  Time limit
+    // 每个城市用 pair<int,int> 存：
+    // first  -> 城市坐标 x
+    // second -> 人口 p
+    vector<pair<int, int>> city;
+    int X, P;
+    long long total_population = 0;
+    for (int i = 0; i < N; i++) {
+        cin >> X >> P;
+        city.push_back(make_pair(X, P));
+        total_population += P;
+    }
+
+    sort(city.begin(), city.end());
+    
+    long long prefix_population = 0;
+    float ans;
+    for (const auto& [location, population] : city) {
+        prefix_population += population;
+        if (prefix_population * 2 >= total_population) {
+            ans = (float)location;
+        }
+    }
+    cout << fixed << setprecision(5) << ans << endl;
+    return 0;
+}
+
+/*  下面的方法暴力枚举导致超时。没有利用好前面积累的prefix
+    Time limit: 1s
+    Memory limit: 256MB
+    Problem A: 加权中位数
+    题目描述
+    给定 N 个城市，每个城市有一个坐标 x 和一个人口 p。现在要在这些城市之间的某个位置建立一个电视台，使得所有人到电视台的距离加权和最小。请你求出这个位置。
+
+    输入格式
+    第一行包含一个整数 N，表示城市的数量。
+    接下来 N 行，每行包含两个整数 x 和 p，分别表示一个城市的坐标和人口。
+
+    输出格式
+    输出一个实数，表示建立电视台的位置。输出结果保留 5 位小数。
+
+    样例输入
+    3
+    1 10
+    2 20
+    3 30
+
+    样例输出
+    2.00000
+
+    提示
+    所有坐标都是整数，加权中位数一定是整数。
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
