@@ -15,6 +15,7 @@ int main() {
     int k, s;
     vector<pair<int, int> > candidates;
     for (int i = 0; i < n; i++) {
+        cin >> k >> s;
         candidates.push_back(make_pair(k, s));
     }
     sort(candidates.begin(), candidates.end(), cmp);
