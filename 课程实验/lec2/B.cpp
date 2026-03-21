@@ -33,13 +33,13 @@ int main() {
         if (x < 0) {
             left = mid;
         } else {
-            right = mid;
+            right = mid;  
         }
     }
 
     if (x < 0) {
         cout << -1 << endl;
     } else {
-        cout << x << endl;
+        cout << right << endl;
     }
 }
