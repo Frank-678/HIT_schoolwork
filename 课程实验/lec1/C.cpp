@@ -37,7 +37,7 @@ int main() {
                 can_delete = true;
             }
         }
-        if (i == n - 1 && can_delete) {
+        if (i == n - 1 && !can_delete) {
             cout << "NO" << endl;
             break;
         }
