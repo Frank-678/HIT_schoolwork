@@ -17,4 +17,26 @@ int main() {
         cin >> in;
         b.push_back(in);
     }
+
+    double left = 0, double right = 1e9;
+    while (right) {
+        int x = (left + right) / 2;
+
+        x = x - (m + x) / a[1];
+        for (int i = 2; i <= n; i++) {
+            x = x - (m + x) / a[i];
+            x = x - (m + x) / b[i]; 
+            if (x <= 0) {
+                left = x;
+                continue;
+            }
+        }
+        x = x - (m + x) / b[1];
+        if (x < 0) {
+            left = x;
+        } else {
+            right = x;
+        }
+    }
+
 }
