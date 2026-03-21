@@ -25,8 +25,7 @@ int main() {
                 if (v[j][l] - '0') can_on = true;
             }
             if (!can_on) {
-                can_delete = true;
-                break;
+                
             }
         }
 
