@@ -15,7 +15,7 @@ int main() {
 
     // TODO
     bool can_delete = false;
-    bool can_on = false;
+    bool can_on;
     for (int i = 0; i < n; i++) { // 关灯
         if (can_delete) {
             cout << "YES" << endl;
