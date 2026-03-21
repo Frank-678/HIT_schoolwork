@@ -21,7 +21,8 @@ int main() {
     double left = 0, right = 1e9;
     double x;
     while (right - left >= 1e-6) {
-        x = (left + right) / 2;
+        double mid = (left + right) / 2;
+        x = mid;
 
         x = x - (m + x) / a[1];
         for (int i = 2; i <= n; i++) {
@@ -30,9 +31,9 @@ int main() {
         }
         x = x - (m + x) / b[1];
         if (x < 0) {
-            left = (left + right) / 2;
+            left = mid;
         } else {
-            right = (left + right) / 2;
+            right = mid;
         }
     }
 
