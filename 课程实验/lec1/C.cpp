@@ -14,6 +14,12 @@ int main() {
     }
 
     // TODO
+    for (int i = 0; i < n; i++) { // 关灯
+        
+
+
+
+    } 
     return 0;
 }
 
