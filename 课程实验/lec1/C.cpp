@@ -8,31 +8,43 @@ int main() {
     cin >> n >> m;
     string s;
     vector<string> v;
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> s;
         v.push_back(s);
     }
 
     // TODO
     for (int i = 0; i < n; i++) { // 关灯
-        bool can_delete = false;
+        bool can_delete;
+        if (can_delete) {
+            cout << "YES" << endl;
+            break;
+        }
+        can_delete = false;
         for (size_t l = 0; l < m; l++) // 纵向每一位
         {
-            bool can_on = false;
+            bool can_on;
+            if (!can_on) {
+                break;
+            }
+            can_on = false;
             for (int j = 0; j < n; j++) 
             {
                 if (j == i) continue;
                 if (v[j][l] - '0') can_on = true;
             }
-            if (!can_on) {
-                
+            if (l == m - 1 && can_on) {
+                can_delete = true;
             }
+        }
+        if (i == n - 1 && !can_delete) {
+            cout << "NO" << endl;
+            break;
         }
 
 
-
     }
-    cout << "YES" << endl; 
+     
     return 0;
 }
 
