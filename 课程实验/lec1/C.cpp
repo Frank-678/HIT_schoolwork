@@ -7,6 +7,26 @@ int main() {
     int m, n;
     cin >> n >> m;
     string s;
+    vector<string> v;
+    for (int i = 0; i < n; i++) {
+        cin >> s;
+        v.push_back(s);
+    }
+
+    
+    return 0;
+}
+
+/* 条件判强错误
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    int m, n;
+    cin >> n >> m;
+    string s;
     vector<int> v(m);
     for (int i = 0; i < n; i++) {
         cin >> s;
@@ -24,7 +44,7 @@ int main() {
     cout << "YES" << endl;
     return 0;
 }
-
+*/
 
 /* Time Limit EXCEEDED
 #include <iostream>
