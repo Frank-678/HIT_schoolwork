@@ -18,7 +18,7 @@ int main() {
         b.push_back(in);
     }
 
-    double left = 0, double right = 1e9;
+    double left = 0, right = 1e9;
     double x;
     while (right - left <= 1e-6) {
         x = (left + right) / 2;
@@ -41,8 +41,8 @@ int main() {
     }
 
     if (x < 0) {
-        cout << "No Solution" << endl;
+        cout << -1 << endl;
     } else {
-        printf("%.6f\n", x);
+        cout << x << endl;
     }
 }
