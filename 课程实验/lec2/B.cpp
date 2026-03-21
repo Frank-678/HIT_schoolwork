@@ -37,8 +37,8 @@ int main() {
         }
     }
 
-    if (x < 0) {
-        cout << -1 << endl; //
+    if (right < 0) {
+        cout << -1 << endl; //left = 当前已知的不可行最大值 right = 当前已知的可行最小值
     } else {
         cout << right << endl; // ②
     }
