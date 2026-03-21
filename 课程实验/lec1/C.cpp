@@ -6,14 +6,28 @@ using namespace std;
 int main() {
     int m, n;
     cin >> n >> m;
-    string s;
-    vector<string> v;
-    for (int i = 0; i < n; i++) {
-        cin >> s;
-        v.push_back(s);
-    }
+    vector<string> a(n);
+    vector<int> cnt(m, 0);
 
-    
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+        for (int j = 0; j < m; j++) {
+            if (a[i][j] == '1') cnt[j]++;
+        }
+    }
+    for (int k = 0; k < n; k++) {
+        bool can_delete = true;
+        for (int l = 0; l < m; l++) {
+            if (a[k][l] == '1' && cnt[l] == 1) {
+                can_delete = false;
+                break;
+            }
+        }
+        if (can_delete) {
+            cout << "YES" << endl;
+        }
+    }
+    cout << "NO" << endl;
     return 0;
 }
 
