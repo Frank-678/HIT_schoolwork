@@ -29,7 +29,7 @@ int main() {
         }
     }
     cout << "NO" << endl;
-    return 1;
+    return 0;
 }
 
 /* 条件判强错误
