@@ -13,38 +13,42 @@ int main() {
         v.push_back(s);
     }
 
-    // TODO
     bool can_delete = false;
     bool can_on;
-    for (int i = 0; i < n; i++) { // 关灯
+    for (int i = 0; i < n; i++) { // 枚举删哪一行
         if (can_delete) {
             cout << "YES" << endl;
             break;
         }
-        
-        for (size_t l = 0; l < m; l++) // 纵向每一位
-        {
-            if (!can_on) {
+
+        can_on = true;  // 关键：先让列循环能进去
+
+        for (int l = 0; l < m; l++) { // 检查每一列
+            can_on = false;           // 关键：重新判断这一列是否还能亮
+
+            for (int j = 0; j < n; j++) {
+                if (j == i) continue;
+                if (v[j][l] == '1') {
+                    can_on = true;
+                    break;
+                }
+            }
+
+            if (!can_on) { // 这一列灭了，说明第 i 行不能删
                 break;
             }
-            can_on = false;
-            for (int j = 0; j < n; j++) 
-            {
-                if (j == i) continue;
-                if (v[j][l] - '0') can_on = true;
-            }
+
             if (l == m - 1 && can_on) {
                 can_delete = true;
             }
         }
+
         if (i == n - 1 && !can_delete) {
             cout << "NO" << endl;
             break;
         }
-
-
     }
-     
+
     return 0;
 }
 
