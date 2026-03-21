@@ -20,23 +20,19 @@ int main() {
 
     double left = 0, right = 1e9;
     double x;
-    while (right - left <= 1e-6) {
+    while (right - left >= 1e-6) {
         x = (left + right) / 2;
 
         x = x - (m + x) / a[1];
         for (int i = 2; i <= n; i++) {
             x = x - (m + x) / a[i];
             x = x - (m + x) / b[i]; 
-            if (x <= 0) {
-                left = x;
-                continue;
-            }
         }
         x = x - (m + x) / b[1];
         if (x < 0) {
-            left = x;
+            left = (left + right) / 2;
         } else {
-            right = x;
+            right = (left + right) / 2;
         }
     }
 
