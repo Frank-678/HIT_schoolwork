@@ -33,13 +33,17 @@ int main() {
         if (x < 0) {
             left = mid;
         } else {
-            right = mid;  
+            right = mid;  // ①
         }
     }
 
     if (x < 0) {
         cout << -1 << endl;
     } else {
-        cout << right << endl;
+        cout << right << endl; // ②
     }
 }
+
+/*
+    本题原先的失误在①和②两行。都是使用了变化后的x（注意这道题的x有变化）
+*/
