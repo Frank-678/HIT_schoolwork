@@ -14,16 +14,16 @@ int main() {
     }
 
     // TODO
+    bool can_delete = false;
+    bool can_on = false;
     for (int i = 0; i < n; i++) { // 关灯
-        bool can_delete;
         if (can_delete) {
             cout << "YES" << endl;
             break;
         }
-        can_delete = false;
+        
         for (size_t l = 0; l < m; l++) // 纵向每一位
         {
-            bool can_on;
             if (!can_on) {
                 break;
             }
