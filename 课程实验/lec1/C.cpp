@@ -15,11 +15,24 @@ int main() {
 
     // TODO
     for (int i = 0; i < n; i++) { // 关灯
-        
+        for (size_t l = 0; l < m; l++) // 纵向每一位
+        {
+            bool can_on = false;
+            for (int j = 0; j < n; j++) 
+            {
+                if (j == i) continue;
+                if (v[j][l] - '0') can_on = true;
+            }
+            if (!can_on) {
+                cout << "NO" << endl;
+                exit(0);
+            }
+        }
 
 
 
-    } 
+    }
+    cout << "YES" << endl; 
     return 0;
 }
 
