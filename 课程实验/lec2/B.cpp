@@ -19,8 +19,9 @@ int main() {
     }
 
     double left = 0, double right = 1e9;
-    while (right) {
-        int x = (left + right) / 2;
+    double x;
+    while (right - left <= 1e-6) {
+        x = (left + right) / 2;
 
         x = x - (m + x) / a[1];
         for (int i = 2; i <= n; i++) {
@@ -39,4 +40,9 @@ int main() {
         }
     }
 
+    if (x < 0) {
+        cout << "No Solution" << endl;
+    } else {
+        printf("%.6f\n", x);
+    }
 }
