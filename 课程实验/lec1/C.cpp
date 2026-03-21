@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     int m, n;
-    cin >> m >> n;
+    cin >> n >> m;
     string s;
     vector<string> v;
     for (int i = 0; i < m; i++) {
@@ -15,6 +15,7 @@ int main() {
 
     // TODO
     for (int i = 0; i < n; i++) { // 关灯
+        bool can_delete = false;
         for (size_t l = 0; l < m; l++) // 纵向每一位
         {
             bool can_on = false;
@@ -24,8 +25,8 @@ int main() {
                 if (v[j][l] - '0') can_on = true;
             }
             if (!can_on) {
-                cout << "NO" << endl;
-                exit(0);
+                can_delete = true;
+                break;
             }
         }
 
