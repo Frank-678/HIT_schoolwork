@@ -7,14 +7,21 @@ int main() {
     int m, n;
     cin >> n >> m;
     string s;
-    vector<string> v;
+    vector<int> v(m);
     for (int i = 0; i < n; i++) {
         cin >> s;
-        v.push_back(s);
+        for (int j = 0; j < m; j++) {
+            if (s[j] == '1') v[j] += 1; 
+        }
     }
 
-    
-
+    for (int i : v) {
+        if (i <= 1) {
+            cout << "NO" << endl;
+            return 1;
+        }
+    }
+    cout << "YES" << endl;
     return 0;
 }
 
