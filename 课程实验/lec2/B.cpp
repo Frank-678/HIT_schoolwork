@@ -38,7 +38,7 @@ int main() {
     }
 
     if (x < 0) {
-        cout << -1 << endl;
+        cout << -1 << endl; //
     } else {
         cout << right << endl; // ②
     }
