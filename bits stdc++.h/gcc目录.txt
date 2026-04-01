@@ -1,0 +1,15 @@
+Windows（cmd）
+
+执行：
+
+g++ -v -E -x c++ nul
+
+
+找到 .../include/c++/<版本>/
+进入后看有没有 bits 文件夹
+没有就新建 bits
+把你下载的文件命名为 stdc++.h
+最终路径必须是：
+.../include/c++/<版本>/bits/stdc++.h
+
+最后在C/C++ Configurations中Compiler path改为绝对路径xxxxx\MSYS2\ucrt64\bin\g++.exe
