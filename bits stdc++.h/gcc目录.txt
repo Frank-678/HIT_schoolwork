@@ -12,4 +12,4 @@ g++ -v -E -x c++ nul
 最终路径必须是：
 .../include/c++/<版本>/bits/stdc++.h
 
-最后在C/C++ Configurations中Compiler path改为绝对路径xxxxx\MSYS2\ucrt64\bin\g++.exe
+最后在Ctrl+Shift+P中C/C++ Configurations中Compiler path改为绝对路径xxxxx\MSYS2\ucrt64\bin\g++.exe
